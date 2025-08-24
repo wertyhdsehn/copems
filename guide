@@ -1,0 +1,50 @@
+
+Build me a **simulation of a Common Operational Picture (COP) system** with the following requirements:
+
+1. **Tech Stack**
+
+   * **Backend:** Java (Spring Boot).
+   * **Frontend:** React + TailwindCSS.
+   * **Database:** In-memory (H2 or mock data service).
+   * No Docker. The system should run with `mvn spring-boot:run` for backend and `npm start` for frontend.
+
+2. **Features**
+
+   * **User Roles**:
+
+     * **HQ Dashboard**: Can see all units, electromagnetic spectrum scans, and incident alerts on a real map. Can send simulated instructions to field officers.
+     * **Field Officer Dashboard**: Can only see their assigned units, local spectrum scans, and alerts. Can report incidents back to HQ.
+
+   * **Map Integration**:
+
+     * Use Leaflet or Mapbox with a real-world map.
+     * Show unit positions (military, police, sensors) as icons.
+     * Display electromagnetic spectrum activity as colored overlays or heatmaps (mock data).
+     * Display incidents as markers with details (time, type, severity).
+
+   * **Mock Data Simulation**:
+
+     * Units should have positions updated every 5–10 seconds.
+     * Spectrum scans should randomly show activity in selected frequency bands.
+     * Incident alerts should be generated randomly (e.g., “Signal Jamming Detected”, “Unidentified Transmission”).
+
+   * **HQ–Field Communication**:
+
+     * HQ can click a unit on the map and send a simulated instruction (e.g., “Move to Location X” or “Investigate Signal”).
+     * Field Officer can acknowledge and send back a short report.
+
+3. **UI Layout**
+
+   * Left sidebar: Filters (unit type, signal band, alert type).
+   * Main area: Interactive map.
+   * Right sidebar: Event feed with chronological updates (alerts, commands, responses).
+
+4. **Extra Requirements**
+
+   * Use **role-based authentication** (HQ vs Field Officer).
+   * Keep everything **modular and clean** so that later real data feeds can replace the mock simulation.
+   * Provide seed data for at least:
+
+     * 5 units (vehicles/sensors).
+     * 3 spectrum activity types.
+     * Random incidents every 30 seconds.
